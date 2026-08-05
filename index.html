@@ -8,41 +8,104 @@
   body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 760px;
          margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #1f2430; }
   h1 { font-size: 1.5rem; } h2 { font-size: 1.15rem; margin-top: 1.8rem; }
+  h3 { font-size: 1rem; margin-top: 1.2rem; }
   code { background: #f2f2f4; padding: 1px 5px; border-radius: 4px; }
   .muted { color: #6b7280; font-size: .9rem; }
+  table { border-collapse: collapse; width: 100%; margin-top: .6rem; }
+  th, td { border: 1px solid #dcdfe4; padding: 6px 9px; text-align: left; vertical-align: top; }
+  th { background: #f6f7f9; font-weight: 600; }
 </style>
 </head>
 <body>
   <h1>Política de Privacidade</h1>
-  <p class="muted">Extensão: AutoJur · Teses vencedoras (IA Contestações). Última atualização: 24 de julho de 2026.</p>
+  <p class="muted">Extensão: AutoJur · Teses vencedoras (IA Contestações). Última atualização: 4 de agosto de 2026.</p>
 
   <p>Esta extensão é uma ferramenta de uso interno de um escritório de advocacia. Ela funciona
-  apenas dentro do sistema AutoJur do escritório e serve para sugerir teses jurídicas ligadas ao
-  processo aberto na tela.</p>
+  apenas dentro do sistema AutoJur do escritório e tem duas partes: um painel que sugere teses
+  jurídicas para o processo aberto na tela, e um assistente de perguntas e respostas sobre a base
+  de processos do escritório.</p>
+
+  <h2>Quem pode usar</h2>
+  <p>Só quem está logado no AutoJur do escritório. A extensão confirma o login a cada uso. Sem uma
+  sessão ativa no AutoJur, ela não mostra nada.</p>
 
   <h2>Quais dados a extensão usa</h2>
-  <ul>
-    <li><strong>Cookie de sessão do AutoJur:</strong> a extensão lê o cookie da sessão já logada
-    no domínio do AutoJur do escritório para confirmar que o usuário está autenticado.</li>
-    <li><strong>Número do processo (CNJ) e nome do cliente:</strong> lidos da página do processo
-    que já está aberta no AutoJur, para buscar as teses relacionadas ao caso.</li>
-  </ul>
+  <table>
+    <tr><th>Dado</th><th>Para quê</th></tr>
+    <tr>
+      <td><strong>Cookie de sessão do AutoJur</strong></td>
+      <td>Confirmar que a pessoa está logada. O cookie é trocado por um código de acesso que vale
+      20 minutos. A senha do AutoJur nunca é lida nem guardada.</td>
+    </tr>
+    <tr>
+      <td><strong>Nome da conta no AutoJur</strong></td>
+      <td>Saber de quem é cada conversa do assistente, para que ninguém veja a conversa de outra
+      pessoa. O nome é lido pelo servidor, na própria página do AutoJur.</td>
+    </tr>
+    <tr>
+      <td><strong>Número do processo (CNJ) e nome do cliente</strong></td>
+      <td>Lidos da página do processo que já está aberta, para buscar as teses daquele caso.</td>
+    </tr>
+    <tr>
+      <td><strong>As perguntas escritas no assistente</strong></td>
+      <td>Responder à pergunta. As conversas ficam guardadas para a pessoa poder voltar nelas
+      depois.</td>
+    </tr>
+    <tr>
+      <td><strong>Dados de uso</strong></td>
+      <td>Saber se a ferramenta está sendo usada e se alguém está com uma versão antiga.
+      Registramos qual tela foi aberta, qual botão foi usado, a versão do plugin instalada e um
+      código aleatório que identifica o navegador (não a pessoa). O <strong>texto</strong> das
+      perguntas não entra nesse registro.</td>
+    </tr>
+    <tr>
+      <td><strong>Registro de acesso</strong></td>
+      <td>Por exigência de proteção de dados, guardamos quem acessou dados de processo, quando,
+      por qual endereço e de qual IP.</td>
+    </tr>
+  </table>
 
-  <h2>Como os dados são usados</h2>
-  <p>Esses dados são enviados apenas ao servidor (backend) do próprio escritório para: (1) confirmar
-  o login e gerar um token de acesso de curta duração, e (2) devolver as teses sugeridas para o
-  processo. A tese que o advogado escolhe é gravada como uma Tarefa dentro do próprio AutoJur, após
-  revisão do advogado. Nada é gravado automaticamente.</p>
+  <h2>Para onde os dados vão</h2>
+  <p>Os dados vão para o servidor do próprio escritório, hospedado no Google Cloud, e para mais
+  nenhum outro lugar, com uma exceção descrita abaixo.</p>
+
+  <h3>A exceção: o assistente usa uma inteligência artificial do Google</h3>
+  <p>Quando alguém faz uma pergunta no assistente, o texto da pergunta e os dados de processos
+  usados para respondê-la são enviados ao <strong>Google (Vertex AI, modelo Gemini)</strong>, que é
+  quem gera a resposta. Hoje esse processamento acontece <strong>fora do Brasil</strong>, porque o
+  modelo usado não é oferecido na região brasileira. O painel de teses <strong>não</strong> usa
+  inteligência artificial e não envia nada ao Google.</p>
+  <p>Os dados guardados (a base de processos, as conversas e os registros) ficam em servidores no
+  Brasil, na região de São Paulo.</p>
 
   <h2>Compartilhamento</h2>
-  <p>Os dados <strong>não</strong> são vendidos, alugados ou compartilhados com terceiros. Eles
-  trafegam somente entre o navegador do usuário e o servidor do próprio escritório. A extensão
-  não usa os dados para publicidade, avaliação de crédito ou qualquer finalidade fora do seu
-  propósito único.</p>
+  <p>Os dados <strong>não</strong> são vendidos, alugados nem usados para publicidade, avaliação de
+  crédito ou qualquer finalidade fora do propósito da ferramenta. Fora do Google, citado acima, na
+  condição de prestador de serviço que processa a pergunta, nada é compartilhado.</p>
 
-  <h2>Armazenamento</h2>
-  <p>A extensão guarda localmente apenas uma configuração: o endereço (URL) do servidor do
-  escritório. Não guarda histórico de navegação nem dados pessoais no dispositivo.</p>
+  <h2>Por quanto tempo fica guardado</h2>
+  <ul>
+    <li>Registro de acesso e dados de uso: <strong>180 dias</strong>, depois são apagados.</li>
+    <li>Conversas do assistente: ficam até a pessoa apagar. Cada um só vê e só apaga as
+    próprias.</li>
+    <li>O código de acesso do plugin vale <strong>20 minutos</strong> e não fica guardado no
+    servidor.</li>
+  </ul>
+
+  <h2>O que fica guardado no seu navegador</h2>
+  <p>Só duas coisas, no armazenamento local da extensão: o endereço do servidor do escritório e um
+  código aleatório que identifica aquele navegador. Esse código é criado pela própria extensão, não
+  vem de nenhum serviço de rastreamento e não é usado para seguir a pessoa em outros sites. A
+  extensão não guarda histórico de navegação.</p>
+
+  <h2>Quando o plugin é instalado ou removido</h2>
+  <p>Na instalação e na remoção, a extensão avisa o servidor do escritório, enviando o código
+  aleatório do navegador e a versão instalada. Serve para saber quantas instalações existem e quem
+  ainda está com uma versão antiga. Nesse momento não há nome de pessoa nenhum.</p>
+
+  <h2>Seus direitos</h2>
+  <p>Quem usa a ferramenta pode pedir para ver, corrigir ou apagar os seus dados pelo contato
+  abaixo. As conversas do assistente podem ser apagadas pela própria pessoa, direto na tela.</p>
 
   <h2>Contato</h2>
   <p>Dúvidas sobre esta política: <a href="mailto:ikk.lobs@gmail.com">ikk.lobs@gmail.com</a>.</p>
